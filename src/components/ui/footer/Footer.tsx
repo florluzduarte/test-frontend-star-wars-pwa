@@ -13,7 +13,7 @@ const StyledAnchor = Styled("a")`
   font-weight: ${fontWeights.bold};
   color: ${colors.white};
 
-  &:hover, &:focus, &:active, &:visited {
+  &:hover, &:focus, &:active {
     color: ${colors.main};
   };
 `;
