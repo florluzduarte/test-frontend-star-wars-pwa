@@ -6,8 +6,8 @@ interface DividerProps {
 }
 
 const StyledDivider = styled("div")`
-  height: 0.05rem;
-  background-color: ${colors.gray300};
+  height: 0.5px;
+  background-color: ${colors.gray500};
   width: 100%;
   margin: ${gaps.md} 0rem;
 `;

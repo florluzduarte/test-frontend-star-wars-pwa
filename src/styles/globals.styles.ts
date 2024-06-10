@@ -14,7 +14,7 @@ export const colors = {
   mainDark: '#CFBD23',
   mainLight: '#EBDC59',
   black: '#14151D',
-  gray900: '#14151D',
+  gray900: '#2C2C2B',
   gray700: '#14151D',
   gray500: '#787771',
   gray300: '#908E84',
@@ -45,3 +45,5 @@ export const devices = {
   notebook: `screen and (min-width: ${breakpoints.notebook})`,
   desktop: `screen and (min-width: ${breakpoints.desktop})`,
 };
+
+export const fontFamily = `"IBM plex mono", monospace`;

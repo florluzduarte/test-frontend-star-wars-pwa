@@ -19,12 +19,7 @@ const StyledLayout = styled("div")`
 `;
 
 const StyledMain = styled("main")`
-  padding: 1.6rem 2.4rem;
   min-height: 100vh;
-
-  @media ${devices.laptop} {
-    padding: 1.6rem  4.8rem;
-  }
 `;
 
 export const MainLayout = ({ children }: MainLayoutProps) => {
