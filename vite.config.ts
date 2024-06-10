@@ -12,8 +12,8 @@ export default defineConfig({
     injectRegister: false,
 
     pwaAssets: {
-      disabled: false,
-      config: true,
+      disabled: true,
+      config: false,
     },
 
     includeAssets: [
@@ -35,12 +35,12 @@ export default defineConfig({
       icons: [
         {
           src: "/favicon.ico",
-          sizes: "64x64 32x32 24x24 16x16",
+          sizes: "48x48",
           type: "image/x-icon",
         },
         {
           src: "/favicon.svg",
-          sizes: "48x48 72x72 96x96 128x128 256x256 512x512",
+          sizes: "512x512",
           type: "image/svg+xml",
           purpose: "any"
         },
@@ -66,7 +66,7 @@ export default defineConfig({
         },
         {
           src: "/mask-icon.svg",
-          sizes: "48x48 72x72 96x96 128x128 256x256 512x512",
+          sizes: "512x512",
           type: "image/svg+xml",
           purpose: "maskable",
         }
