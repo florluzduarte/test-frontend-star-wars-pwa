@@ -19,7 +19,7 @@ export const colors = {
   gray500: '#787771',
   gray300: '#908E84',
   gray100: '#B2B1AD',
-  white: '#F3F3F7'
+  white: '#F3F3F7',
 };
 
 export const gaps = {
@@ -28,4 +28,20 @@ export const gaps = {
   md: '2.4rem',
   lg: '3.6rem',
   xl: '4.8rem',
+};
+
+export const breakpoints = {
+  mobile: '360px',
+  tablet: '760px',
+  laptop: '1024px',
+  notebook: '1360px',
+  desktop: '1920px',
+};
+
+export const devices = {
+  mobile: `screen and (min-width: ${breakpoints.mobile})`,
+  tablet: `screen and (min-width: ${breakpoints.tablet})`,
+  laptop: `screen and (min-width: ${breakpoints.laptop})`,
+  notebook: `screen and (min-width: ${breakpoints.notebook})`,
+  desktop: `screen and (min-width: ${breakpoints.desktop})`,
 };
