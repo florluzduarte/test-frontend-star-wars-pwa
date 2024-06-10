@@ -1,10 +1,12 @@
-import { MainLayout } from "../components";
+import { MainLayout, Search } from "../components";
+import { Divider } from "../components/ui/divider/Divider";
 
 export const HomePage = () => {
   return (
     <MainLayout>
       <>
-        <h1>Star Wars PWA - Home Page</h1>
+        <Search />
+        <Divider />
       </>
     </MainLayout>
   )
