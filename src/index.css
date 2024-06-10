@@ -37,6 +37,7 @@ svg {
   font-family: 'IBM Plex Mono', monospace, system-ui, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  font-size: 10px;
   background-color: #14151D;
   color: #F3F3F7;
   font-synthesis: none;
