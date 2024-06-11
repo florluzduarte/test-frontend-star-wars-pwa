@@ -15,7 +15,7 @@ export const colors = {
   mainLight: '#EBDC59',
   black: '#14151D',
   gray900: '#2C2C2B',
-  gray700: '#14151D',
+  gray700: '#42423F',
   gray500: '#787771',
   gray300: '#908E84',
   gray100: '#B2B1AD',
