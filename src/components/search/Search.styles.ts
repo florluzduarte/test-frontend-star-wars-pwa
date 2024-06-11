@@ -56,4 +56,9 @@ export const StyledFormButton = styled("button")`
     outline: none;
     border-color: ${colors.main};
   }
+
+  &:hover {
+    border-color: ${colors.main};
+    background-color: ${colors.black};
+  }
 `;

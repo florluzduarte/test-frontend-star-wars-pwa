@@ -1,4 +1,4 @@
-import { CharactersSearchGrid, MainLayout, Search } from "../components";
+import { CharactersSearchGrid, MainLayout, PaginationNav, Search } from "../components";
 import { Divider } from "../components/ui/divider/Divider";
 
 export const HomePage = () => {
@@ -8,6 +8,8 @@ export const HomePage = () => {
         <Search />
         <Divider />
         <CharactersSearchGrid />
+        <Divider />
+        <PaginationNav />
       </>
     </MainLayout>
   )
