@@ -29,8 +29,14 @@ export const PaginationLinks = ({ page, path }: PaginationLinksProps) => {
       to={path}
       end
     >
-      <ScreenReadersOnly altText={page === "..." ? "More pages available" : "Go to page"} />
-      {page}
+      {
+        ({ isActive }) => (
+          <>
+            <ScreenReadersOnly altText={isActive ? "Active page" : page === "..." ? "More pages available" : "Go to page"} />
+            {page}
+          </>
+        )
+      }
     </StyledPaginationLink>
   )
 };
