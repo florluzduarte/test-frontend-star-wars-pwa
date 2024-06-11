@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { colors, devices, fontFamily, fontSizes, gaps } from "../../../styles";
+import { colors, devices, fontFamily, fontSizes, gaps } from "../../styles";
 
 export const StyledForm = styled("form")`
   @media ${devices.tablet} {
