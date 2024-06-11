@@ -1,9 +1,14 @@
-import { MainLayout } from "../components"
+import { CharacterDetailsCard, MainLayout } from "../components"
+import tempData from "../assets/tempData.json";
+
+const data = tempData.results[1];
 
 export const CharacterDetailsPage = () => {
   return (
     <MainLayout>
-      <h1>Character Details Page</h1>
+      <>
+        <CharacterDetailsCard data={data} />
+      </>
     </MainLayout>
   )
-}
+};
