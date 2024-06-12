@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { colors, devices, gaps } from "../../styles";
-import { CharacterDetails } from "../../models/characterDetails";
+import { CharacterDetails } from "../../models/characterDetails.types";
 import { Heading1, CharacterPersonalData, CharacterInfo } from "../";
 import { GoBackLink } from "../ui/links/GoBackLink";
 
