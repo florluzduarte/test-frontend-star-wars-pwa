@@ -1,7 +1,12 @@
 import styled from "@emotion/styled";
-import tempData from "../../assets/tempData.json";
+// import tempData from "../../assets/tempData.json";
 import { CharacterSearchCard } from "./CharacterSearchCard";
 import { devices, gaps } from "../../styles";
+import { CharacterPages } from "../../models";
+
+interface CharacterSearchGrid {
+  data: CharacterPages;
+}
 
 const StyledGrid = styled("div")`
   display: grid;
@@ -32,17 +37,12 @@ const StyledGrid = styled("div")`
   }
 `;
 
-export const CharactersSearchGrid = () => {
+export const CharactersSearchGrid = ({ data }: CharacterSearchGrid) => {
   return (
     <StyledGrid>
       {
-        tempData.results.map((character) => (
-          <CharacterSearchCard key={character.name} imgSrc={character.photo} name={character.name} />
-        ))
-      }
-      {
-        tempData.results.map((character) => (
-          <CharacterSearchCard key={character.name} imgSrc={character.photo} name={character.name} />
+        data && data.results?.map((character) => (
+          <CharacterSearchCard key={character.name} imgSrc={""} name={character.name} />
         ))
       }
     </StyledGrid>
