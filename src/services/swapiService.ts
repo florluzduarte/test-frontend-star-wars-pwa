@@ -1,6 +1,7 @@
 import { CharacterPages, Characters, Species, Starships, Vehicles } from "../models";
 
 const baseUrl = "https://swapi.dev/api";
+// const imageBaseUrl = "https://starwars-visualguide.com/assets/img/characters";
 
 export const getAllCharactersPages = async () => {
   let characterPages: CharacterPages[] = [];
@@ -23,6 +24,7 @@ export const getAllCharacters = async () => {
   while (nextUrl) {
     const response = await fetch(nextUrl);
     const data = await response.json();
+    // const charactersWithImages = 
     characters = [...characters, ...data.results];
     nextUrl = data.next;
   }

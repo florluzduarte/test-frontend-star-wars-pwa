@@ -4,6 +4,7 @@ import { Heading1, CharacterPersonalData, CharacterInfo } from "../";
 import { GoBackLink } from "../ui/links/GoBackLink";
 import { Characters } from "../../models";
 import { useStarWarsContext } from "../../hooks/useStarWarsContext/useStarWarsContext";
+import { extractIdFromUrl } from "../../utils/extractIdFromUrl";
 
 interface CharacterDetailsCardProps {
   data: Characters;
@@ -55,6 +56,8 @@ export const CharacterDetailsCard = ({ data }: CharacterDetailsCardProps) => {
   const { vehicles } = useStarWarsContext()!.vehicles;
   const { species } = useStarWarsContext()!.species;
 
+  const characterID = extractIdFromUrl(data.url);
+
   return (
     <StyledCard>
       <StyledCardTitle>
@@ -63,7 +66,10 @@ export const CharacterDetailsCard = ({ data }: CharacterDetailsCardProps) => {
 
       <StyledCardWrapper>
 
-        <StyledCharacterImg src="" alt={`${data.name} profile picture`} />
+        <StyledCharacterImg
+          src={`https://starwars-visualguide.com/assets/img/characters/${characterID}.jpg`}
+          alt={`${data.name} profile picture`}
+        />
 
         <StyledDetailsWrapper>
           <div>
