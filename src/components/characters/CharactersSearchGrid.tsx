@@ -4,6 +4,7 @@ import { CharacterSearchCard } from "./CharacterSearchCard";
 import { devices, gaps } from "../../styles";
 import { CharacterPages } from "../../models";
 import { extractIdFromUrl } from "../../utils/extractIdFromUrl";
+import { NoResultsFound } from "../api-states/NoResultsFound";
 
 interface CharacterSearchGrid {
   data: CharacterPages;
@@ -40,10 +41,10 @@ const StyledGrid = styled("div")`
 
 export const CharactersSearchGrid = ({ data }: CharacterSearchGrid) => {
 
-  return (
+  if (data && data.results?.length) return (
     <StyledGrid>
       {
-        data && data.results?.length ? data.results?.map((character) => {
+        data.results?.map((character) => {
           const characterID = extractIdFromUrl(character.url);
 
           return (
@@ -54,9 +55,10 @@ export const CharactersSearchGrid = ({ data }: CharacterSearchGrid) => {
               selfUrl={character.url}
             />
           )
-        }) : (<>No Characters Found...</>)
-
+        })
       }
     </StyledGrid>
   )
+
+  return <NoResultsFound />
 };

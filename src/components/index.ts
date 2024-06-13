@@ -26,6 +26,7 @@ export { IsLoadingState } from "./api-states/IsLoadingState";
 export { LeftArrowIcon } from "./ui/icons/LeftArrowIcon";
 export { MillenniumFalcon } from "./ui/icons/MillenniumFalcon";
 export { Navbar } from "./ui/navbar/Navbar";
+export { NoResultsFound } from "./api-states/NoResultsFound";
 export { PaginationButton } from "./ui/buttons/PaginationButton";
 export { R2D2 } from "./ui/icons/R2D2";
 export { RightArrowIcon } from "./ui/icons/RightArrowIcon";
