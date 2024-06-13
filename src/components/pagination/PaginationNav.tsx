@@ -30,6 +30,13 @@ const StyledList = styled("ul")`
 `;
 
 export const PaginationNav = ({ characterPages, handleIndex, currentPage }: PaginationNavProps) => {
+
+  const hasCharacters = characterPages.length > 0;
+
+  if (!hasCharacters) {
+    return (<></>);
+  }
+
   return (
     <StyledPaginationNav role="navigation" aria-label="Pagination navigation">
       <StyledList>

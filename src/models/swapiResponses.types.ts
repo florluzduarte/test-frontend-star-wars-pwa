@@ -1,7 +1,7 @@
 export interface CharacterPages {
-  count: number;
-  next: string | null;
-  previous: string | null;
+  count?: number;
+  next?: string | null;
+  previous?: string | null;
   results: Characters[];
 }
 
