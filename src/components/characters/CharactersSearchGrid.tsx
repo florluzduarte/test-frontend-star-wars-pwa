@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import { CharacterSearchCard } from "./CharacterSearchCard";
 import { devices, gaps } from "../../styles";
 import { CharacterPages } from "../../models";
+import { extractIdFromUrl } from "../../utils/extractIdFromUrl";
 
 interface CharacterSearchGrid {
   data: CharacterPages;
@@ -38,17 +39,22 @@ const StyledGrid = styled("div")`
 `;
 
 export const CharactersSearchGrid = ({ data }: CharacterSearchGrid) => {
+
   return (
     <StyledGrid>
       {
-        data && data.results?.length ? data.results?.map((character) => (
-          <CharacterSearchCard
-            key={character.name}
-            imgSrc={""}
-            name={character.name}
-            selfUrl={character.url}
-          />
-        )) : (<>No Characters Found...</>)
+        data && data.results?.length ? data.results?.map((character) => {
+          const characterID = extractIdFromUrl(character.url);
+
+          return (
+            <CharacterSearchCard
+              key={character.name}
+              imgSrc={`https://starwars-visualguide.com/assets/img/characters/${characterID}.jpg`}
+              name={character.name}
+              selfUrl={character.url}
+            />
+          )
+        }) : (<>No Characters Found...</>)
 
       }
     </StyledGrid>
