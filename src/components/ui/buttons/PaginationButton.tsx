@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { colors, devices, fontSizes, fontWeights } from "../../../styles";
 import { ScreenReadersOnly } from "../screen-readers-only/ScreenReadersOnly";
 
-interface PaginationLinksProps {
+interface PaginationButtonProps {
   index: number;
   handleIndex: (index: number, operation?: 'set') => void;
 }
@@ -26,7 +26,7 @@ const StyledPaginationButton = styled("button")`
   }
 `;
 
-export const PaginationButton = ({ index, handleIndex }: PaginationLinksProps) => {
+export const PaginationButton = ({ index, handleIndex }: PaginationButtonProps) => {
   return (
     <StyledPaginationButton onClick={() => handleIndex(index, "set")}>
       <ScreenReadersOnly altText={"Go to page"} />
