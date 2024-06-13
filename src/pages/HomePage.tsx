@@ -8,9 +8,16 @@ export const HomePage = () => {
   const { characterPages, isLoading, hasError } = useStarWarsContext()!.characterPages;
   const [currentPage, setCurrentPage] = useState(0);
 
-  const getMoreHeroes = () => {
-    if (currentPage >= characterPages.length - 1) return;
-    setCurrentPage(currentPage + 1);
+  const handleIndex = (index: number, operation?: 'set') => {
+    if (operation === 'set') {
+      setCurrentPage(index);
+      return;
+    }
+
+    if (index !== -1 && currentPage >= characterPages.length - 1) return;
+    if (index === -1 && currentPage <= 0) return;
+
+    setCurrentPage(currentPage + index);
   }
 
   if (isLoading) return (
@@ -31,8 +38,7 @@ export const HomePage = () => {
         <Search />
         <Divider />
         <CharactersSearchGrid data={characterPages[currentPage]} />
-        <button onClick={getMoreHeroes}>Cargar más</button>
-        <PaginationNav />
+        <PaginationNav currentPage={currentPage} characterPages={characterPages} handleIndex={handleIndex} />
       </>
     </MainLayout>
   )
