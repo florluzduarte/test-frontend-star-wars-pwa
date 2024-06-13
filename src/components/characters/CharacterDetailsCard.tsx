@@ -14,11 +14,6 @@ const StyledCard = styled("div")`
     max-width: 90rem;
     margin: ${gaps.lg} auto;
   }
-
-  @media ${devices.notebook} {
-    max-width: 110rem;
-    margin: ${gaps.xl} auto;
-  }
 `;
 
 const StyledCardTitle = styled("div")`
@@ -48,12 +43,6 @@ const StyledDetailsWrapper = styled("div")`
   @media ${devices.tablet} {
     margin: 0rem;
   }
-
-  @media ${devices.notebook} {
-    grid-template-columns: 1fr 1fr;
-    gap: ${gaps.xl};
-    margin: ${gaps.md} ${gaps.md} 0rem 0rem;
-  }
 `;
 
 const StyledCharacterImg = styled("img")`
@@ -62,9 +51,9 @@ const StyledCharacterImg = styled("img")`
 
 export const CharacterDetailsCard = ({ data }: CharacterDetailsCardProps) => {
 
-  const starships = useStarWarsContext()?.starships;
-  const vehicles = useStarWarsContext()?.vehicles;
-  const species = useStarWarsContext()?.species;
+  const { starships } = useStarWarsContext()!.starships;
+  const { vehicles } = useStarWarsContext()!.vehicles;
+  const { species } = useStarWarsContext()!.species;
 
   return (
     <StyledCard>
@@ -79,12 +68,11 @@ export const CharacterDetailsCard = ({ data }: CharacterDetailsCardProps) => {
         <StyledDetailsWrapper>
           <div>
             <CharacterPersonalData data={data} />
-            {/* <CharacterInfo items={data.films} title="Films" /> */}
           </div>
           <div>
-            <CharacterInfo items={data.species} data={starships} title="Species" />
-            <CharacterInfo items={data.vehicles} data={vehicles} title="Vehicles" />
-            <CharacterInfo items={data.starships} data={species} title="Starships" />
+            <CharacterInfo urlItems={data.species} contextItems={starships} title="Species" />
+            <CharacterInfo urlItems={data.vehicles} contextItems={vehicles} title="Vehicles" />
+            <CharacterInfo urlItems={data.starships} contextItems={species} title="Starships" />
           </div>
         </StyledDetailsWrapper>
 

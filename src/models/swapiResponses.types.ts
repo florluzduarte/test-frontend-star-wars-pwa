@@ -94,3 +94,37 @@ export interface Starships {
 }
 
 export type ErrorState = unknown | null;
+
+export interface Planets {
+  name: string;
+  rotation_period: string;
+  orbital_period: string;
+  diameter: string;
+  climate: string;
+  gravity: string;
+  terrain: string;
+  surface_water: string;
+  population: string;
+  residents: string[];
+  films: string[];
+  created: Date;
+  edited: Date;
+  url: string;
+}
+
+export interface Films {
+  title: string;
+  episode_id: number;
+  opening_crawl: string;
+  director: string;
+  producer: string;
+  release_date: Date;
+  characters: string[];
+  planets: string[];
+  starships: string[];
+  vehicles: string[];
+  species: string[];
+  created: Date;
+  edited: Date;
+  url: string;
+}

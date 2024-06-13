@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { Heading2, UnorderedList } from "../"
-import { Species, Starships, Vehicles } from "../../models";
+import { extractIdFromUrl } from "../../utils/extractIdFromUrl";
 
 interface CharacterInfoProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -9,37 +9,34 @@ interface CharacterInfoProps {
   title: string;
 }
 
+interface ContextItem {
+  url: string;
+  name: string;
+}
+
 export const CharacterInfo = ({ title, urlItems, contextItems }: CharacterInfoProps) => {
 
   const [itemsNames, setItemsNames] = useState<string[]>([]);
 
-  const getItemsNames = useCallback((itemsFromContext): string[] => {
-    if (!itemsFromContext || itemsFromContext.length < 1) return [];
-    if (urlItems.length < 1) return [];
-    return urlItems?.map((item: string) => {
-      console.log("TITLE:", title);
-      const findedItems = itemsFromContext?.find((itemContext: Starships | Vehicles | Species) => itemContext?.url == item)?.name;
-      console.log({ findedItems });
-      return findedItems;
-    })
-  }, [title, urlItems]);
+  const getItemsNames = useCallback((): string[] => {
+    if (!contextItems || contextItems.length === 0) return [];
+    if (urlItems.length === 0) return [];
+
+    return urlItems.map((itemUrl: string) => {
+      const itemId = extractIdFromUrl(itemUrl);
+      const foundItem = contextItems.find((contextItem: ContextItem) => extractIdFromUrl(contextItem.url) === itemId);
+      return foundItem?.name || "Unknown";
+    });
+  }, [contextItems, urlItems]);
 
   useEffect(() => {
-    if (contextItems) {
-      const itemsFromContext = contextItems[title.toLowerCase()];
-      setItemsNames(getItemsNames(itemsFromContext));
-    }
-  }, [contextItems, getItemsNames, title]);
+    setItemsNames(getItemsNames());
+  }, [getItemsNames]);
 
-  //hay qeu pasarle en items = Nave.name[]
   return (
     <>
       <Heading2>{title}</Heading2>
-      {
-        itemsNames && itemsNames.map((name) => (
-          <p key={name + 1}>{name}</p>
-        ))
-      }
+      <UnorderedList items={itemsNames}></UnorderedList>
     </>
-  )
+  );
 };
