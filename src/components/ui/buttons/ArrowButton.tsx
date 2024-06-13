@@ -1,43 +1,52 @@
-import { Link } from "react-router-dom";
+
 import styled from "@emotion/styled";
 import { LeftArrowIcon } from "../icons/LeftArrowIcon";
-import { colors } from "../../../styles";
+import { colors, devices } from "../../../styles";
 import { RightArrowIcon } from "../icons/RightArrowIcon";
 import { ScreenReadersOnly } from "../screen-readers-only/ScreenReadersOnly";
 
 interface ArrowLinkProps {
   direction: "left" | "right";
-  path: string;
+  handleIndex: (index: number, operation?: 'set') => void;
 }
 
-const StyledArrowLink = styled(Link)`
-  padding: 1.2rem;
-  display: block;
+const StyledArrowButton = styled("button")`
+  
+  padding: 0.8rem;
+  display: inline-block;
+  border: none;
+  background-color: ${colors.black};
+  color: ${colors.white};
   max-width: fit-content;
+  display: none;
 
   &:hover, &:focus {
     background-color: ${colors.gray900};
   }
+
+  @media ${devices.tablet} {
+    display: inline-block;
+  }
 `;
 
-export const ArrowLink = ({ direction, path }: ArrowLinkProps) => {
+export const ArrowButton = ({ direction, handleIndex }: ArrowLinkProps) => {
   return (
     <>
       {
         direction === "left" && (
-          <StyledArrowLink to={path}>
+          <StyledArrowButton onClick={() => handleIndex(-1)}>
             <LeftArrowIcon />
             <ScreenReadersOnly altText="Previous Page" />
-          </StyledArrowLink>
+          </StyledArrowButton>
         )
       }
 
       {
         direction === "right" && (
-          <StyledArrowLink to={path}>
+          <StyledArrowButton onClick={() => handleIndex(1)}>
             <RightArrowIcon />
             <ScreenReadersOnly altText="Next Page" />
-          </StyledArrowLink>
+          </StyledArrowButton>
         )
       }
     </>

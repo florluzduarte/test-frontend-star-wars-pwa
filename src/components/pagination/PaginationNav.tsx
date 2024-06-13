@@ -1,8 +1,13 @@
 import styled from "@emotion/styled";
-import { ArrowLink, PaginationLinks } from "../";
+import { ArrowButton, PaginationButton } from "../";
 import { colors, gaps } from "../../styles";
+import { CharacterPagesState } from "../../hooks/swapi-api/useCharacterPages";
 
-const pages = [1, 2, "...", 9];
+interface PaginationNavProps {
+  currentPage: number;
+  characterPages: CharacterPagesState;
+  handleIndex: (index: number, operation?: 'set') => void;
+}
 
 const StyledPaginationNav = styled("nav")`
   & a.active {
@@ -15,29 +20,34 @@ const StyledPaginationNav = styled("nav")`
 const StyledList = styled("ul")`
   display: flex;
   justify-content: center;
-  gap: ${gaps.xs};
+  align-items: center;
   list-style-type: none;
+  gap: ${gaps.xs};
+
+  & li.active {
+    border: 1px solid ${colors.main};
+  }
 `;
 
-export const PaginationNav = () => {
+export const PaginationNav = ({ characterPages, handleIndex, currentPage }: PaginationNavProps) => {
   return (
     <StyledPaginationNav role="navigation" aria-label="Pagination navigation">
       <StyledList>
         <li>
-          <ArrowLink direction="left" path="/characters" key="left" />
+          <ArrowButton direction="left" key="left" handleIndex={handleIndex} />
         </li>
         {
-          pages.map((page, index) => (
-            <li key={index}>
-              <PaginationLinks
-                path={page === 1 ? "/" : `/${page}`}
-                page={page}
+          characterPages.map((page, index) => (
+            <li key={index} className={index === currentPage ? "active" : ""}>
+              <PaginationButton
+                handleIndex={handleIndex}
+                index={index}
               />
             </li>
           ))
         }
         <li>
-          <ArrowLink direction="right" path="/characters" key="right" />
+          <ArrowButton direction="right" key="right" handleIndex={handleIndex} />
         </li>
       </StyledList>
     </StyledPaginationNav>
