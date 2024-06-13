@@ -1,11 +1,11 @@
 import styled from "@emotion/styled";
-import { CharacterDetails } from "../../models/characterDetails.types";
 import { Heading2 } from "../ui/headings/Heading2"
 import { StyledUnorderedList } from "../ui/lists/UnorderedList"
 import { fontWeights } from "../../styles";
+import { Characters } from "../../models";
 
 interface CharacterPersonalDataProps {
-  data: CharacterDetails;
+  data: Characters;
 }
 
 const StyledCharacteristicsList = StyledUnorderedList;
@@ -16,7 +16,7 @@ const StyledItem = styled("span")`
 
 export const CharacterPersonalData = ({ data }: CharacterPersonalDataProps) => {
 
-  const { height, mass, hair_color, skin_color, eye_color, birth_year, gender, homeworld } = data;
+  const { height, mass, hair_color, skin_color, eye_color, birth_year, gender } = data;
 
   return (
     <>
@@ -29,7 +29,6 @@ export const CharacterPersonalData = ({ data }: CharacterPersonalDataProps) => {
         <li>Eye Color: <StyledItem>{eye_color}</StyledItem></li>
         <li>Birth Year: <StyledItem>{birth_year}</StyledItem></li>
         <li>Gender: <StyledItem>{gender}</StyledItem></li>
-        <li>Homeworld: <StyledItem>{homeworld}</StyledItem></li>
       </StyledCharacteristicsList>
     </>
   )

@@ -1,22 +1,18 @@
 import styled from "@emotion/styled";
 import { colors, devices, gaps } from "../../styles";
-import { CharacterDetails } from "../../models/characterDetails.types";
 import { Heading1, CharacterPersonalData, CharacterInfo } from "../";
 import { GoBackLink } from "../ui/links/GoBackLink";
+import { Characters } from "../../models";
+import { useStarWarsContext } from "../../hooks/useStarWarsContext/useStarWarsContext";
 
 interface CharacterDetailsCardProps {
-  data: CharacterDetails;
+  data: Characters;
 }
 
 const StyledCard = styled("div")`
   @media ${devices.laptop} {
     max-width: 90rem;
     margin: ${gaps.lg} auto;
-  }
-
-  @media ${devices.notebook} {
-    max-width: 110rem;
-    margin: ${gaps.xl} auto;
   }
 `;
 
@@ -47,12 +43,6 @@ const StyledDetailsWrapper = styled("div")`
   @media ${devices.tablet} {
     margin: 0rem;
   }
-
-  @media ${devices.notebook} {
-    grid-template-columns: 1fr 1fr;
-    gap: ${gaps.xl};
-    margin: ${gaps.md} ${gaps.md} 0rem 0rem;
-  }
 `;
 
 const StyledCharacterImg = styled("img")`
@@ -60,6 +50,10 @@ const StyledCharacterImg = styled("img")`
 `;
 
 export const CharacterDetailsCard = ({ data }: CharacterDetailsCardProps) => {
+
+  const { starships } = useStarWarsContext()!.starships;
+  const { vehicles } = useStarWarsContext()!.vehicles;
+  const { species } = useStarWarsContext()!.species;
 
   return (
     <StyledCard>
@@ -69,17 +63,16 @@ export const CharacterDetailsCard = ({ data }: CharacterDetailsCardProps) => {
 
       <StyledCardWrapper>
 
-        <StyledCharacterImg src={data.photo} alt={`${data.name} profile picture`} />
+        <StyledCharacterImg src="" alt={`${data.name} profile picture`} />
 
         <StyledDetailsWrapper>
           <div>
             <CharacterPersonalData data={data} />
-            <CharacterInfo items={data.films} title="Films" />
           </div>
           <div>
-            <CharacterInfo items={data.species} title="Species" />
-            <CharacterInfo items={data.vehicles} title="Vehicles" />
-            <CharacterInfo items={data.starships} title="Starships" />
+            <CharacterInfo urlItems={data.species} contextItems={starships} title="Species" />
+            <CharacterInfo urlItems={data.vehicles} contextItems={vehicles} title="Vehicles" />
+            <CharacterInfo urlItems={data.starships} contextItems={species} title="Starships" />
           </div>
         </StyledDetailsWrapper>
 

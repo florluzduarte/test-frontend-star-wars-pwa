@@ -72,3 +72,8 @@ export const getAllStarships = async () => {
   console.log({ starships });
   return starships;
 };
+
+// export const getCharactersImages = async() => {
+//   const charactersCount = 82;
+//   const apiUrl = `$`
+// }

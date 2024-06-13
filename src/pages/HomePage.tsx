@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { CharactersSearchGrid, MainLayout, PaginationNav, Search } from "../components";
+import { CharactersSearchGrid, HasErrorState, IsLoadingState, MainLayout, PaginationNav, Search } from "../components";
 import { Divider } from "../components/ui/divider/Divider";
 import { useStarWarsContext } from "../hooks/useStarWarsContext/useStarWarsContext";
 import { CharacterPages } from "../models";
@@ -32,13 +32,13 @@ export const HomePage = () => {
 
   if (isLoading) return (
     <MainLayout>
-      <p>Loading...</p>
+      <IsLoadingState />
     </MainLayout>
   );
 
   if (hasError) return (
     <MainLayout>
-      <p>An error happened</p>
+      <HasErrorState />
     </MainLayout>
   )
 

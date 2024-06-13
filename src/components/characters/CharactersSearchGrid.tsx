@@ -42,7 +42,12 @@ export const CharactersSearchGrid = ({ data }: CharacterSearchGrid) => {
     <StyledGrid>
       {
         data && data.results?.length ? data.results?.map((character) => (
-          <CharacterSearchCard key={character.name} imgSrc={""} name={character.name} />
+          <CharacterSearchCard
+            key={character.name}
+            imgSrc={""}
+            name={character.name}
+            selfUrl={character.url}
+          />
         )) : (<>No Characters Found...</>)
 
       }
