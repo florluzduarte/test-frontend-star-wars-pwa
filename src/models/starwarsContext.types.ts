@@ -16,17 +16,17 @@ export interface ContextValue {
     isLoading: boolean;
     hasError: ErrorState;
   },
-  species: {
+  species?: {
     species: SpeciesState;
     isLoading: boolean;
     hasError: ErrorState;
   },
-  starships: {
+  starships?: {
     starships: StarshipsState;
     isLoading: boolean;
     hasError: ErrorState;
   },
-  vehicles: {
+  vehicles?: {
     vehicles: VehiclesState;
     isLoading: boolean;
     hasError: ErrorState;

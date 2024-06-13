@@ -1,10 +1,12 @@
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
 import { colors, fontSizes, fontWeights, gaps } from "../../styles";
+import { getCharacterID } from "../../utils";
 
 interface CharacterSearchCardProps {
   name: string;
   imgSrc: string;
+  selfUrl: string;
 }
 
 
@@ -42,9 +44,12 @@ const StyledName = styled("p")`
   margin: ${gaps.sm} 0rem ${gaps.xs} 0rem;
 `;
 
-export const CharacterSearchCard = ({ name, imgSrc }: CharacterSearchCardProps) => {
+export const CharacterSearchCard = ({ name, imgSrc, selfUrl }: CharacterSearchCardProps) => {
+
+  const characterID = getCharacterID(selfUrl);
+
   return (
-    <StyledCardLink to="/characters">
+    <StyledCardLink to={`characters/${characterID}`}>
       <StyledImg src={imgSrc} alt={`${name} profile picture`} />
       <StyledName>{name}</StyledName>
     </StyledCardLink>

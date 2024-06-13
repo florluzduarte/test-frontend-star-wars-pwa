@@ -1,11 +1,11 @@
 import styled from "@emotion/styled";
-import { CharacterDetails } from "../../models/characterDetails.types";
 import { Heading2 } from "../ui/headings/Heading2"
 import { StyledUnorderedList } from "../ui/lists/UnorderedList"
 import { fontWeights } from "../../styles";
+import { Characters } from "../../models";
 
 interface CharacterPersonalDataProps {
-  data: CharacterDetails;
+  data: Characters;
 }
 
 const StyledCharacteristicsList = StyledUnorderedList;

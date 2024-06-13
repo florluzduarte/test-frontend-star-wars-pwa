@@ -1,11 +1,11 @@
 import styled from "@emotion/styled";
 import { colors, devices, gaps } from "../../styles";
-import { CharacterDetails } from "../../models/characterDetails.types";
 import { Heading1, CharacterPersonalData, CharacterInfo } from "../";
 import { GoBackLink } from "../ui/links/GoBackLink";
+import { Characters } from "../../models";
 
 interface CharacterDetailsCardProps {
-  data: CharacterDetails;
+  data: Characters;
 }
 
 const StyledCard = styled("div")`
@@ -69,7 +69,7 @@ export const CharacterDetailsCard = ({ data }: CharacterDetailsCardProps) => {
 
       <StyledCardWrapper>
 
-        <StyledCharacterImg src={data.photo} alt={`${data.name} profile picture`} />
+        <StyledCharacterImg src="" alt={`${data.name} profile picture`} />
 
         <StyledDetailsWrapper>
           <div>
