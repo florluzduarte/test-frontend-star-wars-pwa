@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
 import { colors, fontSizes, fontWeights, gaps } from "../../styles";
-import { getCharacterID } from "../../utils";
+import { getItemID } from "../../utils";
 
 interface CharacterSearchCardProps {
   name: string;
@@ -46,7 +46,7 @@ const StyledName = styled("p")`
 
 export const CharacterSearchCard = ({ name, imgSrc, selfUrl }: CharacterSearchCardProps) => {
 
-  const characterID = getCharacterID(selfUrl);
+  const characterID = getItemID(selfUrl);
 
   return (
     <StyledCardLink to={`characters/${characterID}`}>

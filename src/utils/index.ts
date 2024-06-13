@@ -1,3 +1,3 @@
 // Utils
 export * from "./getFilteredCharactersPages";
-export * from "./getCharacterID";
+export * from "./getItemID";

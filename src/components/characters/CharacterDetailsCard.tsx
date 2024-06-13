@@ -3,6 +3,7 @@ import { colors, devices, gaps } from "../../styles";
 import { Heading1, CharacterPersonalData, CharacterInfo } from "../";
 import { GoBackLink } from "../ui/links/GoBackLink";
 import { Characters } from "../../models";
+import { useStarWarsContext } from "../../hooks/useStarWarsContext/useStarWarsContext";
 
 interface CharacterDetailsCardProps {
   data: Characters;
@@ -61,6 +62,10 @@ const StyledCharacterImg = styled("img")`
 
 export const CharacterDetailsCard = ({ data }: CharacterDetailsCardProps) => {
 
+  const starships = useStarWarsContext()?.starships;
+  const vehicles = useStarWarsContext()?.vehicles;
+  const species = useStarWarsContext()?.species;
+
   return (
     <StyledCard>
       <StyledCardTitle>
@@ -74,12 +79,12 @@ export const CharacterDetailsCard = ({ data }: CharacterDetailsCardProps) => {
         <StyledDetailsWrapper>
           <div>
             <CharacterPersonalData data={data} />
-            <CharacterInfo items={data.films} title="Films" />
+            {/* <CharacterInfo items={data.films} title="Films" /> */}
           </div>
           <div>
-            <CharacterInfo items={data.species} title="Species" />
-            <CharacterInfo items={data.vehicles} title="Vehicles" />
-            <CharacterInfo items={data.starships} title="Starships" />
+            <CharacterInfo items={data.species} data={starships} title="Species" />
+            <CharacterInfo items={data.vehicles} data={vehicles} title="Vehicles" />
+            <CharacterInfo items={data.starships} data={species} title="Starships" />
           </div>
         </StyledDetailsWrapper>
 
