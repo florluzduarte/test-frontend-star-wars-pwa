@@ -11,7 +11,6 @@ export const CharacterDetailsPage = () => {
   const params = useParams();
 
   useEffect(() => {
-    console.log("CAMBIO EN CHARACTERS");
     setSelectedCharacter(characters[Number(params.id) - 1]);
   }, [characters, params.id])
 
