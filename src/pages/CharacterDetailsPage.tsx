@@ -1,4 +1,4 @@
-import { CharacterDetailsCard, MainLayout } from "../components"
+import { CharacterDetailsCard, HasErrorState, IsLoadingState, MainLayout } from "../components"
 import { useParams } from "react-router-dom";
 import { useStarWarsContext } from "../hooks/useStarWarsContext/useStarWarsContext";
 import { NotFoundPage } from "./NotFoundPage";
@@ -26,13 +26,13 @@ export const CharacterDetailsPage = () => {
 
   if (isLoading) return (
     <MainLayout>
-      <p>Loading...</p>
+      <IsLoadingState />
     </MainLayout>
   );
 
   if (hasError) return (
     <MainLayout>
-      <p>An error happened</p>
+      <HasErrorState />
     </MainLayout>
   )
 

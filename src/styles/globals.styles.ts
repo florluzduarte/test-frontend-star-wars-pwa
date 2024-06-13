@@ -1,3 +1,5 @@
+import styled from "@emotion/styled";
+
 export const fontSizes = {
   small: '1.4rem',
   normal: '1.6rem',
@@ -47,3 +49,18 @@ export const devices = {
 };
 
 export const fontFamily = `"IBM plex mono", monospace`;
+
+export const StyledWrapper = styled("div")`
+  display: flex;
+  flex-direction: column;
+  gap: ${gaps.md};
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const StyledParagraph = styled("p")`
+  font-size: ${fontSizes.big};
+  font-weight: ${fontWeights.bold};
+  text-align: center;
+`;
