@@ -12,11 +12,18 @@ export const HomePage = () => {
 
   const handleCharacterFilter = useCallback((charactersFiltered: CharacterPages[] = characterPages) => {
     setDisplayedCharacters(charactersFiltered);
+    setCurrentPage(0);
   }, [characterPages]);
 
   useEffect(() => {
     handleCharacterFilter(characterPages);
   }, [characterPages, handleCharacterFilter])
+
+  useEffect(() => {
+    if (currentPage >= displayedCharacters.length) {
+      setCurrentPage(displayedCharacters.length - 1);
+    }
+  }, [displayedCharacters, currentPage]);
 
   const handleIndex = (index: number, operation?: 'set') => {
     if (operation === 'set') {
