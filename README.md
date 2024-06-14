@@ -21,6 +21,15 @@ Para este test técnico se solicitaron los siguientes requerimientos:
  1. Agrega animaciones o transiciones para mejorar la experiencia del usuario.  
  2. Implementa una funcionalidad de búsqueda o filtrado de personajes.  
 
+## 🚀 Deploy
+
+Pueden visitar la app desde: https://star-wars-pwa.netlify.app/
+
+⚠️ IMPORTANTE: Para probar su funcionamiento offline realizar los siguientes pasos:
+1. Esperar a que figure en pantalla la notificación que avisa "App lista para funcionar offline"
+2. Una vez vista la notificación recargar una vez más la página (con conexión)
+3. Ya se puede probar offline. Configurando la navegación sin conexión desde devtools/network/offline
+
 ## ⚙️  Stack utilizado
 
 - **Vite** --> Para iniciar el proyecto y generar los builds (Bundling)  
