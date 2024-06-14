@@ -1,7 +1,6 @@
-import { CharacterPages, Characters, Species, Starships, Vehicles } from "../models";
+import { CharacterPages, Species, Starships, Vehicles } from "../models";
 
 const baseUrl = "https://swapi.dev/api";
-// const imageBaseUrl = "https://starwars-visualguide.com/assets/img/characters";
 
 export const getAllCharactersPages = async () => {
   let characterPages: CharacterPages[] = [];
@@ -13,24 +12,7 @@ export const getAllCharactersPages = async () => {
     characterPages = [...characterPages, data];
     nextUrl = data.next;
   }
-  console.log({ characterPages });
   return characterPages;
-};
-
-export const getAllCharacters = async () => {
-  let characters: Characters[] = [];
-  let nextUrl = `${baseUrl}/people/?page=1`;
-
-  while (nextUrl) {
-    const response = await fetch(nextUrl);
-    const data = await response.json();
-    // const charactersWithImages = 
-    characters = [...characters, ...data.results];
-    nextUrl = data.next;
-  }
-
-  console.log({ characters });
-  return characters;
 };
 
 export const getAllVehicles = async () => {
@@ -43,7 +25,6 @@ export const getAllVehicles = async () => {
     vehicles = [...vehicles, ...data.results];
     nextUrl = data.next;
   }
-  console.log({ vehicles });
   return vehicles;
 };
 
@@ -57,7 +38,6 @@ export const getAllSpecies = async () => {
     species = [...species, ...data.results];
     nextUrl = data.next;
   }
-  console.log({ species });
   return species;
 };
 
@@ -71,11 +51,5 @@ export const getAllStarships = async () => {
     starships = [...starships, ...data.results];
     nextUrl = data.next;
   }
-  console.log({ starships });
   return starships;
 };
-
-// export const getCharactersImages = async() => {
-//   const charactersCount = 82;
-//   const apiUrl = `$`
-// }

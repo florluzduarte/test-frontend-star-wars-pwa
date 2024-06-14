@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 import { useRegisterSW } from 'virtual:pwa-register/react';
-import { colors } from '../../../styles';
+import { colors, fontFamily, fontSizes } from '../../../styles';
 
 const StyledBadgeContainer = styled("div")`
   padding: 0;
@@ -21,6 +21,7 @@ const StyledBadgeToast = styled("div")`
   text-align: left;
   box-shadow: 0.3rem 0.4rem 0.5rem 0 ${colors.gray900};
   background-color: ${colors.black};
+  font-size: ${fontSizes.normal};
 `;
 
 const StyledBadgeMessage = styled("div")`
@@ -30,9 +31,12 @@ const StyledBadgeMessage = styled("div")`
 const StyledBadgeButton = styled("button")`
   background-color: ${colors.gray900};
   outline: none;
-  margin-right: 5px;
-  border-radius: 2px;
-  padding: 3px 10px;
+  margin-right: 0.5rem;
+  padding: 0.5rem 1rem;
+  color: ${colors.white};
+  border: 1px solid ${colors.gray100};
+  font-family: ${fontFamily};
+  font-size: ${fontSizes.normal};
 
   &:hover, &:focus {
     border: 0.5px solid ${colors.main};

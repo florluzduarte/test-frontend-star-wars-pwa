@@ -1,29 +1,19 @@
 import { useState, useEffect } from 'react';
-import { Characters, ErrorState } from '../../models';
-import { getAllCharacters } from '../../services';
+import { CharacterPages, Characters, ErrorState } from '../../models';
 
 export type CharactersState = Characters[] | [];
 
-export const useCharacters = () => {
+export const useCharacters = (characterPages: CharacterPages[]) => {
   const [characters, setCharacters] = useState<CharactersState>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [hasError, setHasError] = useState<ErrorState>(null);
+  const [isLoading] = useState(false);
+  const [hasError] = useState<ErrorState>(false);
 
   useEffect(() => {
-    const loadCharacters = async () => {
-      try {
-        setIsLoading(true);
-        const data = await getAllCharacters();
-        setCharacters(data);
-      } catch (err: unknown) {
-        setHasError(err);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    loadCharacters();
-  }, []);
+    if (characterPages.length > 0) {
+      const allCharacters = characterPages.flatMap(page => page.results);
+      setCharacters(allCharacters);
+    }
+  }, [characterPages]);
 
   return { characters, isLoading, hasError };
 };
