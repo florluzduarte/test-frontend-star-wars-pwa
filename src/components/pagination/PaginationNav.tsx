@@ -44,7 +44,7 @@ export const PaginationNav = ({ characterPages, handleIndex, currentPage }: Pagi
           <ArrowButton direction="left" key="left" handleIndex={handleIndex} />
         </li>
         {
-          characterPages.map((page, index) => (
+          characterPages.map((_, index) => (
             <li key={index} className={index === currentPage ? "active" : ""}>
               <PaginationButton
                 handleIndex={handleIndex}

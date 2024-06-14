@@ -12,7 +12,7 @@ export const StarWarsContext = createContext<ContextInitialValue>(null);
 
 export const StarWarsProvider = ({ children }: ProviderProps) => {
   const characterPages = useCharacterPages();
-  const characters = useCharacters();
+  const characters = useCharacters(characterPages.characterPages);
   const species = useSpecies();
   const starships = useStarships();
   const vehicles = useVehicles();
